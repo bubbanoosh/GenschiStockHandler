@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="automapper" Version="6.2.2" />
+    <PackageReference Include="automapper.extensions.microsoft.dependencyinjection" Version="3.2.0" />
+    <PackageReference Include="mediatr" Version="4.1.0" />
+    <PackageReference Include="mediatr.extensions.microsoft.dependencyinjection" Version="4.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="microsoft.aspnetcore.cors" Version="2.0.2" />
+    <PackageReference Include="microsoft.aspnetcore.mvc.cors" Version="2.0.3" />
+    <PackageReference Include="MySqlConnector" Version="0.39.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
+  </ItemGroup>
+
+  
+  <ItemGroup>
+    <ProjectReference Include="..\GenschiStockHandler.Business\GenschiStockHandler.Business.csproj" />
+    <ProjectReference Include="..\GenschiStockHandler.Business.Interfaces\GenschiStockHandler.Business.Interfaces.csproj" />
+    <ProjectReference Include="..\GenschiStockHandler.Entities\GenschiStockHandler.Entities.csproj" />
+    <ProjectReference Include="..\GenschiStockHandler.Repository\GenschiStockHandler.Repository.csproj" />
+    <ProjectReference Include="..\GenschiStockHandler.Repository.Interfaces\GenschiStockHandler.Repository.Interfaces.csproj" />
+  </ItemGroup>
+
+
+</Project>

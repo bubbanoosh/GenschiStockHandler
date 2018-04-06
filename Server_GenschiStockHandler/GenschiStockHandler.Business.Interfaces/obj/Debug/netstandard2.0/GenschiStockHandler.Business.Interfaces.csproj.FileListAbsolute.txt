@@ -1,0 +1,10 @@
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business.Interfaces\bin\Debug\netstandard2.0\GenschiStockHandler.Business.Interfaces.deps.json
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business.Interfaces\bin\Debug\netstandard2.0\GenschiStockHandler.Business.Interfaces.dll
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business.Interfaces\bin\Debug\netstandard2.0\GenschiStockHandler.Business.Interfaces.pdb
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business.Interfaces\bin\Debug\netstandard2.0\GenschiStockHandler.Entities.dll
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business.Interfaces\bin\Debug\netstandard2.0\GenschiStockHandler.Entities.pdb
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business.Interfaces\obj\Debug\netstandard2.0\GenschiStockHandler.Business.Interfaces.csproj.CoreCompileInputs.cache
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business.Interfaces\obj\Debug\netstandard2.0\GenschiStockHandler.Business.Interfaces.AssemblyInfoInputs.cache
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business.Interfaces\obj\Debug\netstandard2.0\GenschiStockHandler.Business.Interfaces.AssemblyInfo.cs
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business.Interfaces\obj\Debug\netstandard2.0\GenschiStockHandler.Business.Interfaces.dll
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business.Interfaces\obj\Debug\netstandard2.0\GenschiStockHandler.Business.Interfaces.pdb

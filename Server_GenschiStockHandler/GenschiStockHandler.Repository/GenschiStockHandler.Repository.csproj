@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GenschiStockHandler.Entities\GenschiStockHandler.Entities.csproj" />
+    <ProjectReference Include="..\GenschiStockHandler.Repository.Interfaces\GenschiStockHandler.Repository.Interfaces.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dapper" Version="1.50.4" />
+    <PackageReference Include="dapper.contrib" Version="1.50.4" />
+    <PackageReference Include="microsoft.extensions.configuration" Version="2.0.1" />
+    <PackageReference Include="MySqlConnector" Version="0.39.0" />
+  </ItemGroup>
+
+</Project>

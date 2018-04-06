@@ -1,0 +1,16 @@
+{
+    "id": 2,
+    "name": "Pointed Stainless Steel Tweezers",
+    "costPrice": 0,
+    "price": 3,
+    "supplierId": 0,
+    "categoryId": 0,
+    "attributes": {
+        "pieces": "1",
+        "material": [
+            "stainless steel"
+        ],
+        "dimensions": "7 inches",
+        "description": "7\" pointed tweezers. Stainless steel. Pointed non-serrated tip. Perfect for picking up or manipulating hot glass."
+    }
+}

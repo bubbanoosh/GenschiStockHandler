@@ -1,0 +1,8 @@
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Entities\bin\Debug\netstandard2.0\GenschiStockHandler.Entities.deps.json
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Entities\bin\Debug\netstandard2.0\GenschiStockHandler.Entities.dll
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Entities\bin\Debug\netstandard2.0\GenschiStockHandler.Entities.pdb
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Entities\obj\Debug\netstandard2.0\GenschiStockHandler.Entities.csproj.CoreCompileInputs.cache
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Entities\obj\Debug\netstandard2.0\GenschiStockHandler.Entities.AssemblyInfoInputs.cache
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Entities\obj\Debug\netstandard2.0\GenschiStockHandler.Entities.AssemblyInfo.cs
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Entities\obj\Debug\netstandard2.0\GenschiStockHandler.Entities.dll
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Entities\obj\Debug\netstandard2.0\GenschiStockHandler.Entities.pdb

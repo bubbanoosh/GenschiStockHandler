@@ -1,0 +1,14 @@
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business\bin\Debug\netstandard2.0\GenschiStockHandler.Business.deps.json
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business\bin\Debug\netstandard2.0\GenschiStockHandler.Business.dll
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business\bin\Debug\netstandard2.0\GenschiStockHandler.Business.pdb
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business\bin\Debug\netstandard2.0\GenschiStockHandler.Business.Interfaces.dll
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business\bin\Debug\netstandard2.0\GenschiStockHandler.Entities.dll
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business\bin\Debug\netstandard2.0\GenschiStockHandler.Repository.Interfaces.dll
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business\bin\Debug\netstandard2.0\GenschiStockHandler.Business.Interfaces.pdb
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business\bin\Debug\netstandard2.0\GenschiStockHandler.Entities.pdb
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business\bin\Debug\netstandard2.0\GenschiStockHandler.Repository.Interfaces.pdb
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business\obj\Debug\netstandard2.0\GenschiStockHandler.Business.csproj.CoreCompileInputs.cache
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business\obj\Debug\netstandard2.0\GenschiStockHandler.Business.AssemblyInfoInputs.cache
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business\obj\Debug\netstandard2.0\GenschiStockHandler.Business.AssemblyInfo.cs
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business\obj\Debug\netstandard2.0\GenschiStockHandler.Business.dll
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.Business\obj\Debug\netstandard2.0\GenschiStockHandler.Business.pdb
