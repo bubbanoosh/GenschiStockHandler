@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
+using System.Threading.Tasks;
 
 namespace GenschiStockHandler.API.Controllers
 {
@@ -34,9 +35,9 @@ namespace GenschiStockHandler.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult GetProducts()
+        public async Task<IActionResult> GetProducts()
         {
-            var products = _productManager.GetProducts("");
+            var products = await _productManager.GetProducts("");
             var productsToReturn = Mapper.Map<IEnumerable<ProductListDto>>(products);
 
             return Ok(productsToReturn);
@@ -48,9 +49,9 @@ namespace GenschiStockHandler.API.Controllers
         /// <param name="searchText"></param>
         /// <returns></returns>
         [HttpGet("list/{searchText?}", Name = "GetSearch")]
-        public IActionResult GetProducts(string searchText = "")
+        public async Task<IActionResult> GetProducts(string searchText = "")
         {
-            var products = _productManager.GetProducts(searchText);
+            var products = await _productManager.GetProducts(searchText);
             var productsToReturn = Mapper.Map<IEnumerable<ProductListDto>>(products);
 
             return Ok(productsToReturn);
@@ -62,9 +63,9 @@ namespace GenschiStockHandler.API.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}", Name = "Get")]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            var Product = _productManager.GetProductById(id);
+            var Product = await _productManager.GetProductById(id);
 
             if (Product == null)
             {
@@ -72,10 +73,8 @@ namespace GenschiStockHandler.API.Controllers
             }
             else
             {
-                // var productDto = Mapper.Map<ProductDetailDto>(Product);
-                // return Ok(productDto);
-
-                return Ok(Product);
+                var productDto = Mapper.Map<ProductDetailDto>(Product);
+                return Ok(productDto);
             }
         }
 

@@ -1,13 +1,15 @@
---  /*
+-- /*
 USE GenschiStockHandler;
 show tables;
 
 SELECT JSON_TYPE('["a", "b", 1]');
 
-select c.category_name as category, s.business_name as supplier, p.*
-from products p
-inner join categories c on c.id = p.category_id
-inner join suppliers s on s.id = p.supplier_id;
+select c.CategoryName as category, s.BusinessName as Supplier, p.*
+from Products p
+inner join Categories c on c.Id = p.CategoryId
+inner join Suppliers s on s.Id = p.SupplierId;
+
+select * from Products where Id = 2;
 
 -- */
 
@@ -24,32 +26,32 @@ USE GenschiStockHandler;
 
 
 
-CREATE TABLE `GenschiStockHandler`.`suppliers`(
-    `id` INT UNSIGNED NOT NULL auto_increment ,
-    `business_name` VARCHAR(250) NOT NULL ,
-    `url` VARCHAR(250) NOT NULL ,
-    `contact_name` VARCHAR(50) NULL ,
-    `phone` VARCHAR(50) NULL ,
-    PRIMARY KEY(`id`)
+CREATE TABLE `GenschiStockHandler`.`Suppliers`(
+    `Id` INT UNSIGNED NOT NULL auto_increment ,
+    `BusinessName` VARCHAR(250) NOT NULL ,
+    `Url` VARCHAR(250) NOT NULL ,
+    `ContactName` VARCHAR(50) NULL ,
+    `Phone` VARCHAR(50) NULL ,
+    PRIMARY KEY(`Id`)
 );
 
-CREATE TABLE `GenschiStockHandler`.`categories`(
-    `id` INT UNSIGNED NOT NULL auto_increment ,
-    `category_name` VARCHAR(250) NOT NULL ,
-    PRIMARY KEY(`id`)
+CREATE TABLE `GenschiStockHandler`.`Categories`(
+    `Id` INT UNSIGNED NOT NULL auto_increment ,
+    `CategoryName` VARCHAR(250) NOT NULL ,
+    PRIMARY KEY(`Id`)
 );
 
 
-## suppliers 
-INSERT INTO `GenschiStockHandler`.`suppliers`(`business_name`, `url`, `contact_name`, `phone`)
+## Suppliers 
+INSERT INTO `GenschiStockHandler`.`Suppliers`(`BusinessName`, `Url`, `ContactName`, `Phone`)
 VALUES
     ('Amazing Glass', 'http://www.amazingglass.com', 'Jim Smith', '+61 02 56689959');
 
-INSERT INTO `GenschiStockHandler`.`suppliers`(`business_name`, `url`, `contact_name`, `phone`)
+INSERT INTO `GenschiStockHandler`.`Suppliers`(`BusinessName`, `Url`, `ContactName`, `Phone`)
 VALUES
     ('Dichroic dudes', 'http://www.dichro.com', 'Suzanne Williams', '+1 444 5559876');
 
-INSERT INTO `GenschiStockHandler`.`suppliers`(`business_name`, `url`, `contact_name`, `phone`)
+INSERT INTO `GenschiStockHandler`.`Suppliers`(`BusinessName`, `Url`, `ContactName`, `Phone`)
 VALUES
     ('Glass is us', 'http://www.glassisus.com', null, null);
 
@@ -58,44 +60,44 @@ VALUES
 
 
 ## Types of electronic device
-INSERT INTO `GenschiStockHandler`.`categories`(`category_name`)
+INSERT INTO `GenschiStockHandler`.`Categories`(`CategoryName`)
 VALUES
     ('Tools');
 
-INSERT INTO `GenschiStockHandler`.`categories`(`category_name`)
+INSERT INTO `GenschiStockHandler`.`Categories`(`CategoryName`)
 VALUES
     ('Glass Rods');
 
-INSERT INTO `GenschiStockHandler`.`categories`(`category_name`)
+INSERT INTO `GenschiStockHandler`.`Categories`(`CategoryName`)
 VALUES
     ('Moulds');
     
   
   
-  CREATE TABLE `GenschiStockHandler`.`products`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
-    `name` VARCHAR(250) NOT NULL ,
-    `cost_price` DECIMAL(13, 2) NOT NULL,
-    `price` DECIMAL(13, 2) NOT NULL,
-    `supplier_id` INT UNSIGNED NOT NULL ,
-    `category_id` INT UNSIGNED NOT NULL ,
-    `attributes` JSON NOT NULL ,
-    PRIMARY KEY(`id`) ,
-    INDEX `CATEGORY_ID`(`category_id` ASC) ,
-    INDEX `supplier_id`(`supplier_id` ASC) ,
-    CONSTRAINT `supplier_id` FOREIGN KEY(`supplier_id`) REFERENCES `GenschiStockHandler`.`suppliers`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE ,
-    CONSTRAINT `category_id` FOREIGN KEY(`category_id`) REFERENCES `GenschiStockHandler`.`categories`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+  CREATE TABLE `GenschiStockHandler`.`Products`(
+    `Id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+    `Name` VARCHAR(250) NOT NULL ,
+    `CostPrice` DECIMAL(13, 2) NOT NULL,
+    `Price` DECIMAL(13, 2) NOT NULL,
+    `SupplierId` INT UNSIGNED NOT NULL ,
+    `CategoryId` INT UNSIGNED NOT NULL ,
+    `Attributes` JSON NOT NULL ,
+    PRIMARY KEY(`Id`) ,
+    INDEX `CategoryId`(`CategoryId` ASC) ,
+    INDEX `SupplierId`(`SupplierId` ASC) ,
+    CONSTRAINT `SupplierId` FOREIGN KEY(`SupplierId`) REFERENCES `GenschiStockHandler`.`Suppliers`(`Id`) ON DELETE RESTRICT ON UPDATE CASCADE ,
+    CONSTRAINT `CategoryId` FOREIGN KEY(`CategoryId`) REFERENCES `GenschiStockHandler`.`Categories`(`Id`) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 
 ## Let's sell some cameras
-INSERT INTO `GenschiStockHandler`.`products`(
-    `name` ,
-    `price`,
-    `cost_price`,
-    `supplier_id` ,
-    `category_id` ,
-    `attributes`
+INSERT INTO `GenschiStockHandler`.`Products`(
+    `Name` ,
+    `Price`,
+    `CostPrice`,
+    `SupplierId` ,
+    `CategoryId` ,
+    `Attributes`
 )
 VALUES(
     'Awesome Stainless Steel Spatula Set' ,
@@ -111,13 +113,13 @@ VALUES(
     )
 );
 
-INSERT INTO `GenschiStockHandler`.`products`(
-    `name` ,
-    `price`,
-    `cost_price`,
-    `supplier_id` ,
-    `category_id` ,
-    `attributes`
+INSERT INTO `GenschiStockHandler`.`Products`(
+    `Name` ,
+    `Price`,
+    `CostPrice`,
+    `SupplierId` ,
+    `CategoryId` ,
+    `Attributes`
 )
 VALUES(
     'Pointed Stainless Steel Tweezers' ,
@@ -133,13 +135,13 @@ VALUES(
     )
 );
 
-INSERT INTO `GenschiStockHandler`.`products`(
-    `name` ,
-    `price`,
-    `cost_price`,
-    `supplier_id` ,
-    `category_id` ,
-    `attributes`
+INSERT INTO `GenschiStockHandler`.`Products`(
+    `Name` ,
+    `Price`,
+    `CostPrice`,
+    `SupplierId` ,
+    `CategoryId` ,
+    `Attributes`
 )
 VALUES(
     'Graphite Paddle' ,
@@ -155,13 +157,13 @@ VALUES(
     )
 );
 
-INSERT INTO `GenschiStockHandler`.`products`(
-    `name` ,
-    `price`,
-    `cost_price`,
-    `supplier_id` ,
-    `category_id` ,
-    `attributes`
+INSERT INTO `GenschiStockHandler`.`Products`(
+    `Name` ,
+    `Price`,
+    `CostPrice`,
+    `SupplierId` ,
+    `CategoryId` ,
+    `Attributes`
 )
 VALUES(
     'Small Brass Shaping Tool' ,
@@ -177,13 +179,13 @@ VALUES(
     )
 );
 
-INSERT INTO `GenschiStockHandler`.`products`(
-    `name` ,
-    `price`,
-    `cost_price`,
-    `supplier_id` ,
-    `category_id` ,
-    `attributes`
+INSERT INTO `GenschiStockHandler`.`Products`(
+    `Name` ,
+    `Price`,
+    `CostPrice`,
+    `SupplierId` ,
+    `CategoryId` ,
+    `Attributes`
 )
 VALUES(
     'Bent Tungsten Rake' ,

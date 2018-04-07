@@ -10,6 +10,7 @@ using static System.Data.CommandType;
 
 using MySql.Data.MySqlClient;
 using Dapper.Contrib.Extensions;
+using System.Threading.Tasks;
 
 namespace GenschiStockHandler.Repository
 {
@@ -32,20 +33,22 @@ namespace GenschiStockHandler.Repository
         {
             try
             {
-                return 1;
-                // using (var connection = GetOpenConnection())
-                // {
-                //     DynamicParameters parameters = new DynamicParameters();
-                //     parameters.Add("@Id", dbType: DbType.Int32, direction: ParameterDirection.Output);
-                //     parameters.Add("@FirstName", product.FirstName);
-                //     parameters.Add("@LastName", product.LastName);
-                //     parameters.Add("@Email", product.Email);
-                //     SqlMapper.Execute(connection, "Products_AddProduct", param: parameters, commandType: StoredProcedure);
+                using (var connection = GetOpenConnection())
+                {
+                    DynamicParameters parameters = new DynamicParameters();
+                    parameters.Add("@Id", dbType: DbType.Int32, direction: ParameterDirection.Output);
+                    parameters.Add("@Name", product.Name);
+                    parameters.Add("@Cost_Price", product.CostPrice, dbType: DbType.Decimal, precision: 13, scale: 2);
+                    parameters.Add("@Price", product.Price, dbType: DbType.Decimal, precision: 13, scale: 2);
+                    parameters.Add("@Supplier_Id", product.SupplierId);
+                    parameters.Add("@Category_Id", product.SupplierId);
+                    parameters.Add("@Attributes", product.Attributes, dbType: DbType.String);
+                    SqlMapper.Execute(connection, "insert into products(name, cost_price, price, supplier_id, category_id, attributes )", param: parameters);
 
-                //     int id = parameters.Get<int>("Id");
+                    int id = parameters.Get<int>("Id");
 
-                //     return id;
-                // }
+                    return id;
+                }
             }
             catch (Exception ex)
             {
@@ -75,11 +78,15 @@ namespace GenschiStockHandler.Repository
         /// </summary>
         /// <param name="searchText"></param>
         /// <returns></returns>
-        public IEnumerable<Product> GetProducts(string searchText = "")
+        public async Task<IEnumerable<Product>> GetProducts(string searchText = "")
         {
             using (var connection = GetOpenConnection())
             {
-                return connection.GetAll<Product>();
+                string sql = string.IsNullOrWhiteSpace(searchText)? "select * from products" : @"select * from products where name like @SearchText";
+
+                var userList = await SqlMapper.QueryAsync<Product>(connection, sql, new { SearchText = "%" + searchText + "%" });
+                return userList;
+
             }
         }
 
@@ -88,7 +95,7 @@ namespace GenschiStockHandler.Repository
         /// </summary>
         /// <param name="productId"></param>
         /// <returns></returns>
-        public Product GetProductById(int productId)
+        public async Task<Product> GetProductById(int productId)
         {
             try
             {
@@ -102,11 +109,9 @@ namespace GenschiStockHandler.Repository
                         from products
                         where id = @ProductId";
 
-                    var product = SqlMapper.Query<Product>(connection, sql, param: parameters).FirstOrDefault()   ;                     
+                    var product = await SqlMapper.QueryFirstOrDefaultAsync<Product>(connection, sql, param: parameters);                     
 
                     return product;
-
-                    //return connection.Get<Product>(productId);
                 }
             }
             catch (Exception)

@@ -27,7 +27,7 @@ namespace GenschiStockHandler.Repository
 
         public void Dispose()
         {
-            _connection.Close();
+            //_connection.Close();
         }
     }
 }

@@ -10,6 +10,7 @@ namespace GenschiStockHandler.API.Helpers{
             //     $"{src.FirstName} {src.LastName}"));
 
             CreateMap<Entities.Product, Dtos.ProductDetailDto>();
+            CreateMap<Entities.Product, Dtos.ProductEditDto>();
 
             // CreateMap<Entities.User, Dtos.UserDisplayDto>();
 

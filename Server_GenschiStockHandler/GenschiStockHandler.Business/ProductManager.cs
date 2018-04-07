@@ -2,6 +2,7 @@
 using GenschiStockHandler.Entities;
 using GenschiStockHandler.Repository.Interfaces;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace GenschiStockHandler.Business
 {
@@ -39,9 +40,9 @@ namespace GenschiStockHandler.Business
         /// </summary>
         /// <param name="searchText"></param>
         /// <returns></returns>
-        public IEnumerable<Product> GetProducts(string searchText = "")
+        public async Task<IEnumerable<Product>> GetProducts(string searchText = "")
         {
-            return _productRepository.GetProducts(searchText);
+            return await _productRepository.GetProducts(searchText);
         }
 
         /// <summary>
@@ -49,9 +50,9 @@ namespace GenschiStockHandler.Business
         /// </summary>
         /// <param name="productId"></param>
         /// <returns></returns>
-        public Product GetProductById(int productId)
+        public async Task<Product> GetProductById(int productId)
         {
-            return _productRepository.GetProductById(productId);
+            return await _productRepository.GetProductById(productId);
         }
 
         /// <summary>

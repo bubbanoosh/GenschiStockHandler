@@ -1,5 +1,6 @@
 ﻿using GenschiStockHandler.Entities;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace GenschiStockHandler.Repository.Interfaces
 {
@@ -8,7 +9,7 @@ namespace GenschiStockHandler.Repository.Interfaces
         int AddProduct(Product customer);
         bool UpdateProduct(Product customer);
         bool RemoveProduct(int id);
-        IEnumerable<Product> GetProducts(string searchText);
-        Product GetProductById(int id);
+        Task<IEnumerable<Product>> GetProducts(string searchText);
+        Task<Product> GetProductById(int id);
     }
 }
