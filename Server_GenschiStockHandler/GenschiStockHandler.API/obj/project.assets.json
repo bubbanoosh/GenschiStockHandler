@@ -4937,6 +4937,16 @@
           "bin/placeholder/GenschiStockHandler.Business.Interfaces.dll": {}
         }
       },
+      "GenschiStockHandler.Dtos/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/GenschiStockHandler.Dtos.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GenschiStockHandler.Dtos.dll": {}
+        }
+      },
       "GenschiStockHandler.Entities/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -4945,6 +4955,24 @@
         },
         "runtime": {
           "bin/placeholder/GenschiStockHandler.Entities.dll": {}
+        }
+      },
+      "GenschiStockHandler.Features/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "GenschiStockHandler.Business.Interfaces": "1.0.0",
+          "GenschiStockHandler.Dtos": "1.0.0",
+          "GenschiStockHandler.Entities": "1.0.0",
+          "automapper": "6.2.2",
+          "mediatr": "4.1.0",
+          "mediatr.extensions.microsoft.dependencyinjection": "4.1.0"
+        },
+        "compile": {
+          "bin/placeholder/GenschiStockHandler.Features.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GenschiStockHandler.Features.dll": {}
         }
       },
       "GenschiStockHandler.Repository/1.0.0": {
@@ -12974,10 +13002,20 @@
       "path": "../GenschiStockHandler.Business.Interfaces/GenschiStockHandler.Business.Interfaces.csproj",
       "msbuildProject": "../GenschiStockHandler.Business.Interfaces/GenschiStockHandler.Business.Interfaces.csproj"
     },
+    "GenschiStockHandler.Dtos/1.0.0": {
+      "type": "project",
+      "path": "../GenschiStockHandler.Dtos/GenschiStockHandler.Dtos.csproj",
+      "msbuildProject": "../GenschiStockHandler.Dtos/GenschiStockHandler.Dtos.csproj"
+    },
     "GenschiStockHandler.Entities/1.0.0": {
       "type": "project",
       "path": "../GenschiStockHandler.Entities/GenschiStockHandler.Entities.csproj",
       "msbuildProject": "../GenschiStockHandler.Entities/GenschiStockHandler.Entities.csproj"
+    },
+    "GenschiStockHandler.Features/1.0.0": {
+      "type": "project",
+      "path": "../GenschiStockHandler.Features/GenschiStockHandler.Features.csproj",
+      "msbuildProject": "../GenschiStockHandler.Features/GenschiStockHandler.Features.csproj"
     },
     "GenschiStockHandler.Repository/1.0.0": {
       "type": "project",
@@ -12994,7 +13032,9 @@
     ".NETCoreApp,Version=v2.0": [
       "GenschiStockHandler.Business >= 1.0.0",
       "GenschiStockHandler.Business.Interfaces >= 1.0.0",
+      "GenschiStockHandler.Dtos >= 1.0.0",
       "GenschiStockHandler.Entities >= 1.0.0",
+      "GenschiStockHandler.Features >= 1.0.0",
       "GenschiStockHandler.Repository >= 1.0.0",
       "GenschiStockHandler.Repository.Interfaces >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.5",
@@ -13052,6 +13092,12 @@
             },
             "D:\\Websites\\GenschiStockHandler\\Server_GenschiStockHandler\\GenschiStockHandler.Repository\\GenschiStockHandler.Repository.csproj": {
               "projectPath": "D:\\Websites\\GenschiStockHandler\\Server_GenschiStockHandler\\GenschiStockHandler.Repository\\GenschiStockHandler.Repository.csproj"
+            },
+            "D:\\Websites\\GenschiStockHandler\\Server_GenschiStockHandler\\GenschiStockHandler.Dtos\\GenschiStockHandler.Dtos.csproj": {
+              "projectPath": "D:\\Websites\\GenschiStockHandler\\Server_GenschiStockHandler\\GenschiStockHandler.Dtos\\GenschiStockHandler.Dtos.csproj"
+            },
+            "D:\\Websites\\GenschiStockHandler\\Server_GenschiStockHandler\\GenschiStockHandler.Features\\GenschiStockHandler.Features.csproj": {
+              "projectPath": "D:\\Websites\\GenschiStockHandler\\Server_GenschiStockHandler\\GenschiStockHandler.Features\\GenschiStockHandler.Features.csproj"
             },
             "D:\\Websites\\GenschiStockHandler\\Server_GenschiStockHandler\\GenschiStockHandler.Repository.Interfaces\\GenschiStockHandler.Repository.Interfaces.csproj": {
               "projectPath": "D:\\Websites\\GenschiStockHandler\\Server_GenschiStockHandler\\GenschiStockHandler.Repository.Interfaces\\GenschiStockHandler.Repository.Interfaces.csproj"

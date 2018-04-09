@@ -1,4 +1,4 @@
-﻿namespace GenschiStockHandler.API.Dtos
+﻿namespace GenschiStockHandler.Dtos
 {
     public class ProductListDto
     {

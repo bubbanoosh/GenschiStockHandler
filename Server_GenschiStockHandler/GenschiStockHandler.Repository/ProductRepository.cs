@@ -38,12 +38,12 @@ namespace GenschiStockHandler.Repository
                     DynamicParameters parameters = new DynamicParameters();
                     parameters.Add("@Id", dbType: DbType.Int32, direction: ParameterDirection.Output);
                     parameters.Add("@Name", product.Name);
-                    parameters.Add("@Cost_Price", product.CostPrice, dbType: DbType.Decimal, precision: 13, scale: 2);
+                    parameters.Add("@CostPrice", product.CostPrice, dbType: DbType.Decimal, precision: 13, scale: 2);
                     parameters.Add("@Price", product.Price, dbType: DbType.Decimal, precision: 13, scale: 2);
-                    parameters.Add("@Supplier_Id", product.SupplierId);
-                    parameters.Add("@Category_Id", product.SupplierId);
+                    parameters.Add("@SupplierId", product.SupplierId);
+                    parameters.Add("@CategoryId", product.SupplierId);
                     parameters.Add("@Attributes", product.Attributes, dbType: DbType.String);
-                    SqlMapper.Execute(connection, "insert into products(name, cost_price, price, supplier_id, category_id, attributes )", param: parameters);
+                    SqlMapper.Execute(connection, "insert into products(name, costprice, price, supplierid, categoryid, attributes )", param: parameters);
 
                     int id = parameters.Get<int>("Id");
 
@@ -57,20 +57,24 @@ namespace GenschiStockHandler.Repository
         }
 
         /// <summary>
-        /// Completetly remove a Product fron the Database
+        /// Completetly remove a Product from the Database
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         public bool RemoveProduct(int id)
         {
-            return true;
-            // using (var connection = GetOpenConnection())
-            // {
-            //     DynamicParameters parameters = new DynamicParameters();
-            //     parameters.Add("@Id", id);
-            //     SqlMapper.Execute(connection, "Products_DeleteProduct", param: parameters, commandType: StoredProcedure);
-            //     return true;
-            // }
+            using (var connection = GetOpenConnection())
+            {
+                try
+                {
+                    var affectedRows = connection.Execute("delete from products where id = @Id", new { id });
+                    return affectedRows > 0;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
         }
 
         /// <summary>
@@ -82,7 +86,7 @@ namespace GenschiStockHandler.Repository
         {
             using (var connection = GetOpenConnection())
             {
-                string sql = string.IsNullOrWhiteSpace(searchText)? "select * from products" : @"select * from products where name like @SearchText";
+                string sql = string.IsNullOrWhiteSpace(searchText) ? "select * from products" : @"select * from products where name like @SearchText";
 
                 var userList = await SqlMapper.QueryAsync<Product>(connection, sql, new { SearchText = "%" + searchText + "%" });
                 return userList;
@@ -109,7 +113,7 @@ namespace GenschiStockHandler.Repository
                         from products
                         where id = @ProductId";
 
-                    var product = await SqlMapper.QueryFirstOrDefaultAsync<Product>(connection, sql, param: parameters);                     
+                    var product = await SqlMapper.QueryFirstOrDefaultAsync<Product>(connection, sql, param: parameters);
 
                     return product;
                 }

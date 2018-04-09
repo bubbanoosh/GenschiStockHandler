@@ -25,7 +25,9 @@
         "dependencies": {
           "GenschiStockHandler.Business": "1.0.0",
           "GenschiStockHandler.Business.Interfaces": "1.0.0",
+          "GenschiStockHandler.Dtos": "1.0.0",
           "GenschiStockHandler.Entities": "1.0.0",
+          "GenschiStockHandler.Features": "1.0.0",
           "GenschiStockHandler.Repository": "1.0.0",
           "GenschiStockHandler.Repository.Interfaces": "1.0.0",
           "Microsoft.AspNetCore.All": "2.0.5",
@@ -3973,12 +3975,36 @@
           "GenschiStockHandler.Business.Interfaces.dll": {}
         }
       },
+      "GenschiStockHandler.Dtos/1.0.0": {
+        "runtime": {
+          "GenschiStockHandler.Dtos.dll": {}
+        },
+        "compile": {
+          "GenschiStockHandler.Dtos.dll": {}
+        }
+      },
       "GenschiStockHandler.Entities/1.0.0": {
         "runtime": {
           "GenschiStockHandler.Entities.dll": {}
         },
         "compile": {
           "GenschiStockHandler.Entities.dll": {}
+        }
+      },
+      "GenschiStockHandler.Features/1.0.0": {
+        "dependencies": {
+          "GenschiStockHandler.Business.Interfaces": "1.0.0",
+          "GenschiStockHandler.Dtos": "1.0.0",
+          "GenschiStockHandler.Entities": "1.0.0",
+          "AutoMapper": "6.2.2",
+          "MediatR": "4.1.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "4.1.0"
+        },
+        "runtime": {
+          "GenschiStockHandler.Features.dll": {}
+        },
+        "compile": {
+          "GenschiStockHandler.Features.dll": {}
         }
       },
       "GenschiStockHandler.Repository/1.0.0": {
@@ -6267,7 +6293,17 @@
       "serviceable": false,
       "sha512": ""
     },
+    "GenschiStockHandler.Dtos/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "GenschiStockHandler.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GenschiStockHandler.Features/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

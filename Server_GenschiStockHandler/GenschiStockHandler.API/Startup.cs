@@ -15,6 +15,9 @@ using GenschiStockHandler.Business;
 using GenschiStockHandler.Business.Interfaces;
 using AutoMapper;
 using Dapper;
+using MediatR;
+using GenschiStockHandler.API.Extensions;
+using System.Reflection;
 
 namespace GenschiStockHandler.API
 {
@@ -42,12 +45,17 @@ namespace GenschiStockHandler.API
             });
             services.AddTransient<AppDb>(_ => new AppDb(Configuration[key: "ConnectionStrings:DefaultConnection"]));
 
-            
+
             // register services
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductManager, ProductManager>();
 
             services.AddAutoMapper();
+
+            services.AddScoped<IMediator, Mediator>();
+            services.AddTransient<SingleInstanceFactory>(sp => t => sp.GetService(t));
+            services.AddTransient<MultiInstanceFactory>(sp => t => sp.GetServices(t));
+            services.AddMediatorHandlers(typeof(Startup).GetTypeInfo().Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,7 +67,7 @@ namespace GenschiStockHandler.API
             }
 
             app.UseMvc();
-            SqlMapper.AddTypeHandler(typeof(Dictionary<string, object>), new JsonObjectTypeHandler ());
+            SqlMapper.AddTypeHandler(typeof(Dictionary<string, object>), new JsonObjectTypeHandler());
 
         }
     }

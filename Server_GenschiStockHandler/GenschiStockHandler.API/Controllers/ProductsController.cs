@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using GenschiStockHandler.API.Helpers;
-using GenschiStockHandler.API.Dtos;
 using GenschiStockHandler.Business.Interfaces;
 using GenschiStockHandler.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +8,9 @@ using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 using System.Threading.Tasks;
+using MediatR;
+//using GenschiStockHandler.Features;
+using GenschiStockHandler.Dtos;
 
 namespace GenschiStockHandler.API.Controllers
 {
@@ -20,27 +22,17 @@ namespace GenschiStockHandler.API.Controllers
         private ILogger<ProductsController> _logger;
         private IProductManager _productManager;
         private IMapper _mapper;
+        private IMediator _mediator;
 
-        public ProductsController(IProductManager productManger,
+        public ProductsController(IMediator mediator,
+            IProductManager productManger,
             ILogger<ProductsController> logger,
             IMapper mapper)
         {
+            _mediator = mediator;
             _productManager = productManger;
             _logger = logger;
             _mapper = mapper;
-        }
-
-        /// <summary>
-        /// GET: api/Products
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public async Task<IActionResult> GetProducts()
-        {
-            var products = await _productManager.GetProducts("");
-            var productsToReturn = Mapper.Map<IEnumerable<ProductListDto>>(products);
-
-            return Ok(productsToReturn);
         }
 
         /// <summary>
@@ -51,8 +43,7 @@ namespace GenschiStockHandler.API.Controllers
         [HttpGet("list/{searchText?}", Name = "GetSearch")]
         public async Task<IActionResult> GetProducts(string searchText = "")
         {
-            var products = await _productManager.GetProducts(searchText);
-            var productsToReturn = Mapper.Map<IEnumerable<ProductListDto>>(products);
+            var productsToReturn = await _mediator.Send(new GetProductsQuery { SearchText = searchText });
 
             return Ok(productsToReturn);
         }
@@ -65,16 +56,15 @@ namespace GenschiStockHandler.API.Controllers
         [HttpGet("{id}", Name = "Get")]
         public async Task<IActionResult> Get(int id)
         {
-            var Product = await _productManager.GetProductById(id);
+            var productDetailDto = await _mediator.Send(new GetProductByIdQuery { Id = id});
 
-            if (Product == null)
+            if (productDetailDto == null)
             {
                 return NotFound($"No Product found with id: {id}");
             }
             else
             {
-                var productDto = Mapper.Map<ProductDetailDto>(Product);
-                return Ok(productDto);
+                return Ok(productDetailDto);
             }
         }
 
@@ -95,7 +85,7 @@ namespace GenschiStockHandler.API.Controllers
             if (id <= 0)
             {
                 ModelState.AddModelError(nameof(Product),
-                    "Oops, Product already exists!");
+                    "Hmmm, Product insert failed?");
 
                 // return 422 - Unprocessable Entity
                 return new UnprocessableEntityObjectResult(ModelState);

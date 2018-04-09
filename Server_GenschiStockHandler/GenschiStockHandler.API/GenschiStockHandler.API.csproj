@@ -29,6 +29,8 @@
     <ProjectReference Include="..\GenschiStockHandler.Business.Interfaces\GenschiStockHandler.Business.Interfaces.csproj" />
     <ProjectReference Include="..\GenschiStockHandler.Entities\GenschiStockHandler.Entities.csproj" />
     <ProjectReference Include="..\GenschiStockHandler.Repository\GenschiStockHandler.Repository.csproj" />
+    <ProjectReference Include="..\GenschiStockHandler.Dtos\GenschiStockHandler.Dtos.csproj" />
+    <ProjectReference Include="..\GenschiStockHandler.Features\GenschiStockHandler.Features.csproj" />
     <ProjectReference Include="..\GenschiStockHandler.Repository.Interfaces\GenschiStockHandler.Repository.Interfaces.csproj" />
   </ItemGroup>
 

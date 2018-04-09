@@ -18,3 +18,7 @@ D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.A
 D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.API\bin\Debug\netcoreapp2.0\GenschiStockHandler.Repository.dll
 D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.API\bin\Debug\netcoreapp2.0\GenschiStockHandler.Business.pdb
 D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.API\bin\Debug\netcoreapp2.0\GenschiStockHandler.Repository.pdb
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.API\bin\Debug\netcoreapp2.0\GenschiStockHandler.Dtos.dll
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.API\bin\Debug\netcoreapp2.0\GenschiStockHandler.Features.dll
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.API\bin\Debug\netcoreapp2.0\GenschiStockHandler.Dtos.pdb
+D:\Websites\GenschiStockHandler\Server_GenschiStockHandler\GenschiStockHandler.API\bin\Debug\netcoreapp2.0\GenschiStockHandler.Features.pdb
